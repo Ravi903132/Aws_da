@@ -4,16 +4,16 @@ import rds_db as db
 import pymysql
 app = Flask(__name__)
 dynamodb = boto3.resource('dynamodb',
-                          aws_access_key_id='AKIAY4GH74X5Q6TXD6W2',
-                          aws_secret_access_key='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',
+                          aws_access_key_id='******',
+                          aws_secret_access_key='*********',
                           )
 from boto3.dynamodb.conditions import Key, Attr
 from werkzeug.utils import secure_filename
 s3 = boto3.client('s3',
                   # aws_access_key_id='AKIAY4GH74X5WFIXGW66',
-                  aws_access_key_id='AKIAY4GH74X5Q6TXD6W2',
+                  aws_access_key_id='***********',
                   # aws_secret_access_key='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',
-                  aws_secret_access_key='Oe6IkS6F9Dl1oUeSf1gPvtcekBhNjbv9ITdDUlNc',
+                  aws_secret_access_key='',
                   )
 BUCKET_NAME = 's3-direct-push'
 @app.route('/')
@@ -75,11 +75,11 @@ def upload():
             msg = "Upload Done ! "
     return render_template("upload.html", msg=msg)
 conn = pymysql.connect(
-        host= 'database-1.c2gawlby2uqr.us-east-2.rds.amazonaws.com',
+        host= '',
         port = 3306,
         user = 'admin',
-        password = 'muni2002',
-        db = 'mydb'
+        password = '',
+        db = ''
         )
 @app.route('/put')
 def put():
